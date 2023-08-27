@@ -1,0 +1,73 @@
+/* TodoForm.css */
+
+  /* align-items: center; Center vertically */
+    
+  .todo-form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="file"] {
+    width: -webkit-fill-available;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  .attachment-drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  
+  .attachment-drop-zone:hover {
+    border-color: #007bff;
+  }
+  
+  .attachment-drop-zone div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    font-size: 16px;
+  }
+  
+
+  @media (max-width: 600px) {
+    .todo-form {
+      max-width: 90%; 
+    }
+  }
+  

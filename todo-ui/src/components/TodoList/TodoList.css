@@ -1,0 +1,172 @@
+/* TodoList.css */
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* .todo-list .todo-post {
+  border: 1px solid #e1e8ed;
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: 15px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.todo-grid .todo-post {
+  border: 1px solid #e1e8ed;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 15px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  transition: background-color 0.2s, transform 0.2s;
+  max-height: 200px; 
+  overflow: hidden;
+  max-width: 90%;
+} */
+/* .todo-post:hover {
+  transform: translateY(-2px);
+}
+
+.todo-post.expanded {
+  max-height: none;
+}
+
+.todo-grid .todo-content {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 90%;
+}
+.todo-list .todo-content {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  flex-grow: 1;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  max-width: 90%;
+}
+
+.todo-content.expanded{
+  overflow: none;
+  text-overflow: normal;
+  white-space: normal;
+  max-width: 100%;
+}
+
+.expand-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007bff;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.todo-timestamp {
+  color: #8899a6;
+  font-size: 14px;
+}
+
+.todo-icons {
+  display: flex;
+  align-items: center;
+  align-self: end;
+  margin-top: 10px;
+}
+
+.todo-icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #8899a6;
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.todo-icons button:focus {
+  outline: none;
+}
+
+.todo-icons button:hover {
+  color: #1da1f2;
+}
+
+.todo-checkbox-container {
+  position: absolute;
+  transform: translate3d(-.75rem,-.75rem,0);
+  display: flex;
+  align-items: center;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.todo-checkbox input {
+  display: none;
+}
+
+.todo-checkbox span {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; 
+  border: 1px solid #ccc; 
+  border-radius: 50%; 
+}
+
+.todo-checkbox input:checked + span {
+  background-color: #1da1f2;
+  color: #fff;
+} */
+
+/* Styles for the filter buttons */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+/* Styles for the grid layout */
+.todo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Styles for the list layout */
+.todo-list {
+  list-style: none;
+  padding: 0;
+}

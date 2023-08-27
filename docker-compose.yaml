@@ -1,0 +1,26 @@
+version: '3'
+services:
+  todo-api:
+    build:
+      context: .
+      dockerfile: todo-api/Dockerfile
+      args:
+      - --no-cache
+    ports:
+      - "8000:80"
+    depends_on:
+      - mongo
+
+  todo-ui:
+    build:
+      context: .
+      dockerfile: todo-ui/Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - todo-api
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
