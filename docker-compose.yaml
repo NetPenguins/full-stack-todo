@@ -9,7 +9,14 @@ services:
     ports:
       - "8000:80"
     depends_on:
-      - mongo
+      - todo-db
+    environment:
+      MONGODB_CONNECTION_URI: todo-db
+      DB_NAME: ${DB_NAME} # <-- passed by .env file located with docker-compose.yaml
+      DB_USER: ${DB_USER} # <-- passed by .env file located with docker-compose.yaml
+      DB_PW: ${DB_PW} # <-- passed by .env file located with docker-compose.yaml
+    networks:
+      - mynetwork
 
   todo-ui:
     build:
@@ -19,8 +26,32 @@ services:
       - "3000:80"
     depends_on:
       - todo-api
+    networks:
+      - mynetwork
 
-  mongo:
+  todo-db:
     image: mongo:latest
+    container_name: todo-db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: myadmin
+      MONGO_INITDB_ROOT_PASSWORD: mysecretpassword
+      MONOGO_INITDB_DATABASE: todo_backend
     ports:
       - "27017:27017"
+    networks:
+      mynetwork:
+        ipv4_address: 10.0.0.3  # Specify the desired IP address for todo-api
+    command: mongod --auth --bind_ip 127.0.0.1,10.0.0.3
+    volumes:
+      - mongodb_data:/data/db
+        
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24   # Define your desired subnet here
+
+volumes:
+  mongodb_data:

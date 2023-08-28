@@ -1,12 +1,19 @@
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from dotenv import dotenv_values
+from os import getenv
 from fastapi.responses import JSONResponse
 from pymongo import MongoClient, errors
 from routes import router as list_router
 
-config = dotenv_values('.env')
+
+# Load environment variables
+MONGO_URI = getenv("MONGODB_CONNECTION_URI", 'localhost')
+MONGO_DB = getenv("DB_NAME", 'default')
+MONGO_USER = getenv("DB_USER", '')
+MONGO_PW = getenv("DB_PW")
+mongo_connection_string = f"mongodb://{MONGO_USER}:{MONGO_PW}@{MONGO_URI}"
+
 app = FastAPI()
 app.include_router(list_router, tags=["list"], prefix="/list")
 app.debug = True
@@ -46,9 +53,9 @@ async def root():
 @app.on_event("startup")
 def startup_db_client():
     try:
-        print(config["MONGODB_CONNECTION_URI"])
-        app.mongodb_client = MongoClient(config["MONGODB_CONNECTION_URI"])
-        app.database = app.mongodb_client[config["DB_NAME"]]
+        print(mongo_connection_string)
+        app.mongodb_client = MongoClient(mongo_connection_string)
+        app.database = app.mongodb_client[MONGO_DB]
         app.database.command('ping')
     except errors.ConnectionFailure as e:
         # Handle the exception here, e.g. log the error or display a user-friendly message
